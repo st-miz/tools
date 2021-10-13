@@ -1,0 +1,8 @@
+@echo off
+rem /D は本日よりN日数分古いものをマッチさせる(60日以前、など)
+rem @isdir==FALSE >> ディレクトリは無視してファイルだけが削除対象
+rem /M 特定の名前のファイルのみ抽出
+
+forfiles /P "C:\inetpub\logs\LogFiles\W3SVC3" /D -60 /M *.log /C "cmd /c if @isdir==FALSE del /s @path"
+forfiles /P "C:\inetpub\logs\AdvancedLogs" /D -60 /M *.log /C "cmd /c if @isdir==FALSE del /s @path"
+

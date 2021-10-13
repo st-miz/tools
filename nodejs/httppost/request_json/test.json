@@ -1,0 +1,8 @@
+{
+  "uri" : "http://www-test.mobilecall.jp/api/all/all/3.0/svc/AddOrder",
+  "uri" : "http://localhost:8080/all/3.0/svc/AddOrder",
+  "body" : {
+    "OrderID" : "519CF40A-F9E0-45AF-BBBB-E7EC9E688BD7",
+    "UserID" : "D3B8ED0E-2249-46C2-8D2B-01E6EFF8130F",
+  }
+}

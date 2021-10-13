@@ -1,0 +1,38 @@
+@echo off
+rem ------------------------------------------------------------
+rem DB 一括import / export バッチファイル
+rem 一括登録する
+rem データはDBから取得したスクリプトファイルを利用する事
+rem テーブルの一覧は、以下のSQLで確認してその都度取得すること
+rem   select name from sysobjects where xtype = 'U' order by 1
+rem ------------------------------------------------------------
+
+rem DBユーザ
+set USER=xxxx
+rem DBユーザのパスワード
+set PASS=xxxx
+rem DBサーバ
+rem set SERVER=192.168.1.1
+set SERVER=192.168.1.1
+rem データベース
+set DATABASE=xxxx
+rem スクリプトを配置しているフォルダ
+set TARGET_DIR=C:\xxxx\
+
+pause
+
+rem -------------------------------------------------------------------------------------------------------------------
+rem export = 「テーブル指定後のオプションは"OUT" 」、import = 「テーブル指定後のオプションは"IN" 」に一括置換してから実行してください
+rem -------------------------------------------------------------------------------------------------------------------
+bcp %DATABASE%.dbo.[BaseWebGroupByCompanyBranch] OUT %TARGET_DIR%xxxx -S %SERVER%  -U %USER% -P  %PASS% -n
+rem トランザクションデータは不要
+rem  -- 無視 bcp %DATABASE%.dbo.sysdiagrams OUT %TARGET_DIR%sysdiagrams -S %SERVER%  -U %USER% -P  %PASS% -n
+
+pause
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+REM リリース後にErrorレベルのlogが出力されていないか確認するbat
+set GREP_KEYWORD="ERROR"
+REM grepするディレクトリ(currentディレクトリで実行する場合は空値)
+set GREP_DIR_PATH=
+REM logの古いもの("example.log.1", "example.log.2016-01-01"など)は無視するため.log
+set GREP_FILE="*.log"
+set RESULT_FILE=grep_result.log
+findstr /S %GREP_DIR_PATH%%GREP_KEYWORD% %GREP_FILE% >> %RESULT_FILE%
